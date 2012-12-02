@@ -125,6 +125,3 @@ alias b="bundle exec"
 
 # Alias ack to ag, for muscle memory
 alias ack="ag -f -S --pager='less -FRSX'"
-
-# Alias hub to git
-eval "$(hub alias -s)"

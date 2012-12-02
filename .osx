@@ -13,20 +13,10 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "HI FIX ME"
-sudo scutil --set HostName "HI FIX ME"
-sudo scutil --set LocalHostName "HI FIX ME"
-sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "HI FIX ME"
-
-# Menu bar: disable transparency
-defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
-
-# Menu bar: show remaining battery time (on pre-10.8); hide percentage
-defaults write com.apple.menuextra.battery ShowPercent -string "NO"
-defaults write com.apple.menuextra.battery ShowTime -string "YES"
-
-# Menu bar: hide the useless Time Machine and Volume icons
-defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Clock.menu"
+sudo scutil --set ComputerName "fry"
+sudo scutil --set HostName "fry"
+sudo scutil --set LocalHostName "fry"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "fry"
 
 # Always show scrollbars
 defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
@@ -76,10 +66,6 @@ defaults write com.apple.helpviewer DevMode -bool true
 # Commented out, as this is known to cause problems when saving files in
 # Adobe Illustrator CS5 :(
 #echo "0x08000100:0" > ~/.CFUserTextEncoding
-
-# Reveal IP address, hostname, OS version, etc. when clicking the clock
-# in the login window
-sudo defaults write /Library/Preferences/com.apple.loginwindow AdminHostInfo HostName
 
 # Restart automatically if the computer freezes
 systemsetup -setrestartfreeze on
@@ -141,7 +127,7 @@ defaults write com.apple.BezelServices kDimTime -int 300
 # Note: if you’re in the US, replace `EUR` with `USD`, `Centimeters` with
 # `Inches`, and `true` with `false`.
 defaults write NSGlobalDomain AppleLanguages -array "en"
-defaults write NSGlobalDomain AppleLocale -string "en_GB@currency=USD"
+defaults write NSGlobalDomain AppleLocale -string "en_US@currency=USD"
 defaults write NSGlobalDomain AppleMeasurementUnits -string "Centimeters"
 defaults write NSGlobalDomain AppleMetricUnits -bool true
 
@@ -179,7 +165,7 @@ sudo defaults write /Library/Preferences/com.apple.windowserver DisplayResolutio
 ###############################################################################
 
 # Finder: allow quitting via ⌘ + Q; doing so will also hide desktop icons
-defaults write com.apple.finder QuitMenuItem -bool true
+# defaults write com.apple.finder QuitMenuItem -bool true
 
 # Finder: disable window animations and Get Info animations
 defaults write com.apple.finder DisableAllAnimations -bool true
@@ -191,7 +177,7 @@ defaults write com.apple.finder ShowMountedServersOnDesktop -bool true
 defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 
 # Finder: show hidden files by default
-defaults write com.apple.finder AppleShowAllFiles -bool true
+# defaults write com.apple.finder AppleShowAllFiles -bool true
 
 # Finder: show all filename extensions
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
@@ -265,7 +251,7 @@ unset file
 defaults write com.apple.dock mouse-over-hilte-stack -bool true
 
 # Set the icon size of Dock items to 36 pixels
-defaults write com.apple.dock tilesize -int 36
+defaults write com.apple.dock tilesize -int 55
 
 # Enable spring loading for all Dock items
 defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
@@ -290,11 +276,6 @@ defaults write com.apple.dock expose-group-by-app -bool false
 
 # Don’t show Dashboard as a Space
 defaults write com.apple.dock dashboard-in-overlay -bool true
-
-# Remove the auto-hiding Dock delay
-defaults write com.apple.Dock autohide-delay -float 0
-# Remove the animation when hiding/showing the Dock
-defaults write com.apple.dock autohide-time-modifier -float 0
 
 # Enable the 2D Dock
 #defaults write com.apple.dock no-glass -bool true

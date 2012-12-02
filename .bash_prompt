@@ -65,6 +65,7 @@ function set_prompt() {
       end="${LC}\$${NIL} "
     fi
 
+    export GIT_PS1_SHOWDIRTYSTATE=true
     export PS1="${host}:${path}${VIRTUAL_ENV:+(`basename ${VIRTUAL_ENV}`)}${hg}$(__git_ps1 "{%s}") ${end}"
 }
 

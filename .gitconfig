@@ -78,3 +78,7 @@
 
 [push]
 	default = simple
+
+[user]
+  name = Lindsey Smith
+  email = lindsey@phparadox.com
