@@ -35,6 +35,10 @@ DOMAIN=`hostname | cut -d '.' -f 2-`
 
 # Multiplatform sed tomfoolery used below (extended regexp)
 alias esed='sed -E'; 
+
+function exists() {
+  type "$1" >/dev/null 2>/dev/null
+}
  
 # Prompt function because PROMPT_COMMAND is awesome
 function set_prompt() {
@@ -53,9 +57,14 @@ function set_prompt() {
         fi
         _dirname="$_dirname/`basename "$_pwd"`"
     fi
+
     path="${LC}${_dirname}${NIL}"
     
-    hg=`hg prompt "[{update}{branch}{|{tags}}{status}]" 2>/dev/null`
+    if exists hg ; then
+      hg=`hg prompt "[{update}{branch}{|{tags}}{status}]" 2>/dev/null`
+    else
+      hg=""
+    fi
  
     if [ $(id -u) -eq 0 ]; then
       # root
