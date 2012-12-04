@@ -11,3 +11,11 @@ export HISTFILESIZE=$HISTSIZE
 export HISTCONTROL=ignoredups
 # Make some commands not show up in history
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
+
+# Python dev
+export WORKON_HOME=~/Developer/python-environments/
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export PIP_RESPECT_VIRTUALENV=true
+
+# default grep to color-rific
+export GREP_OPTIONS='--color=auto'
