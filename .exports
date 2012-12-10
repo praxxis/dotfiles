@@ -19,3 +19,7 @@ export PIP_RESPECT_VIRTUALENV=true
 
 # default grep to color-rific
 export GREP_OPTIONS='--color=auto'
+
+# virtualenv
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Projects

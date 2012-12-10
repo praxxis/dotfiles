@@ -47,8 +47,15 @@ complete -o "nospace" -W "Contacts Calendar Dock Finder Mail Safari iTunes Syste
 
 [ -e ~/Developer/cinderella.profile ] && source ~/Developer/cinderella.profile
 
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
+BREW=`brew --prefix`
+
+if [ -f $BREW/etc/bash_completion ]; then
+  . $BREW/etc/bash_completion
+fi
+
+if [ -f $BREW/share/python/virtualenvwrapper.sh ]; then
+  export VIRTUALENVWRAPPER_SCRIPT=$BREW/share/python/virtualenvwrapper.sh
+  source $BREW/share/python/virtualenvwrapper.sh
 fi
 
 # Alias hub to git
