@@ -1,0 +1,66 @@
+# Prompt config
+
+add_newline = false
+
+# A minimal left prompt
+format = """$username$hostname$directory$git_branch$git_commit$git_status$git_state $character"""
+
+# Use the color palette
+palette = "dracula"
+
+# Define Dracula color palette
+[palettes.dracula]
+background = "#22212C"
+current_line = "#454158"
+foreground = "#F8F8F2"
+comment = "#7970A9"
+cyan = "#80FFEA"
+green = "#8AFF80"
+orange = "#FFCA80"
+pink = "#FF80BF"
+purple = "#9580FF"
+red = "#FF9580"
+yellow = "#FFFF80"
+
+[line_break]
+disabled = true
+
+[character]
+success_symbol = '[\$](green bold)'
+error_symbol = '[\$](red bold)'
+
+[directory]
+format = '[$path]($style)[$read_only]($read_only_style)'
+style = "blue bold"
+truncation_length = 1
+truncation_symbol = ""
+fish_style_pwd_dir_length = 1
+
+[git_branch]
+format = '[ $branch]($style)'
+style = 'green'
+
+[git_commit]
+format = '[\($hash$tag\)]($style)'
+style = 'green'
+
+[git_status]
+format = '([$conflicted$modified$untracked$staged$ahead_behind]($style))'
+style = "orange"
+staged = ""
+modified = ""
+untracked = ""
+ahead = "⇡${count}"
+behind = "⇣${count}"
+
+[git_state]
+format = '[ $state( $progress_current/$progress_total)]($style)'
+
+[hostname]
+#ssh_only = false
+ssh_symbol = '🌐'
+format = '[$hostname$ssh_symbol]($style):'
+
+[username]
+#show_always = true
+format = '[$user]($style)@'
