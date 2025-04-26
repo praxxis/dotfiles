@@ -1,0 +1,13 @@
+[edit]
+{{ if lookPath "cursor" -}}
+command = "cursor"
+{{- else if lookPath "code" -}}
+command = "code"
+{{- end }}
+args = ["--wait"]
+[diff]
+command = "delta"
+pager = "delta"
+format = "git"
+args = ["--paging=never"]
+exclude = ["dirs"]
