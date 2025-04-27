@@ -1,3 +1,7 @@
+{{- if not (lookPath "brew") -}}
+{{- writeToStdout "Homebrew not found, exiting\n" -}}
+{{- exit 1 -}}
+{{- end -}}
 [edit]
 {{ if lookPath "cursor" -}}
 command = "cursor"

@@ -1,0 +1,10 @@
+packages:
+  - eza
+  - git-delta
+  - rg
+  - hub
+  - fzy
+  - static-web-server
+  - starship
+  - fd
+  - atuin

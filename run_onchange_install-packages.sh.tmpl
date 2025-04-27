@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -eu
+
+brew bundle --file=/dev/stdin <<EOF
+{{ range .packages -}}
+brew {{ . | quote }}
+{{ end -}}
+EOF
