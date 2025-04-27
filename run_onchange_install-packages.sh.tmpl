@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 set -eu
 
+{{- if ne .chezmoi.uid "0" }}
 brew bundle --file=/dev/stdin <<EOF
 {{ range .packages -}}
 brew {{ . | quote }}
 {{ end -}}
 EOF
+{{- end }}
