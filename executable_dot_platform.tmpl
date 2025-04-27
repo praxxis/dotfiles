@@ -1,0 +1,5 @@
+{{- if eq .chezmoi.os "darwin" -}}
+{{-   template "platform_darwin.tmpl" . -}}
+{{- else if eq .chezmoi.os "linux" -}}
+{{-   template "platform_linux.tmpl" . -}}
+{{- end -}}
