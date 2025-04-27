@@ -9,3 +9,4 @@ packages:
   - starship
   - fd
   - atuin
+  - zoxide
