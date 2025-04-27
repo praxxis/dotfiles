@@ -5,10 +5,13 @@
 [edit]
 {{ if lookPath "cursor" -}}
 command = "cursor"
+args = ["--wait"]
 {{- else if lookPath "code" -}}
 command = "code"
-{{- end }}
 args = ["--wait"]
+{{- else -}}
+command = "vim"
+{{- end }}
 [diff]
 command = "delta"
 pager = "delta"
