@@ -1,0 +1,95 @@
+[alias]
+	b = branch
+	branches = branch -a
+	hist = log --pretty=format:'%C(yellow)%h %ad%Creset | %s%C(bold red)%d%Creset [%C(bold blue)%an%Creset]' --graph --date=short
+	l = log --pretty=oneline -n 20 --graph
+	lastauthor = log -1 --format='%Cgreen%an <%ae>'
+	lb = branch -v --sort=committerdate
+	lg = log --all --graph --abbrev-commit --date=relative --pretty=format:'%C(bold blue)%h - %C(reset)%C(green)(%ar)%C(reset) - %s %C(dim)- %an%C(reset)%C(yellow)%d'
+	remotes = remote -v
+	s = status -s
+	tags = tag -l
+
+[apply]
+	whitespace = fix
+
+[branch]
+    autoSetupMerge = simple
+
+[core]
+	excludesfile = ~/.gitignore
+	fsmonitor = true
+	pager = delta
+
+[credential]
+	helper = osxkeychain
+
+[delta]
+	features = line-numbers decorations
+	syntax-theme = Dracula
+	whitespace-error-style = 22 reverse
+
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-decoration-style = none
+	file-style = bold yellow ul
+
+[diff]
+	indentHeuristic = on
+	renames = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	process = git-lfs filter-process
+	required = true
+	smudge = git-lfs smudge -- %f
+
+[include]
+	path = ~/.gittheme
+
+[init]
+	defaultBranch = main
+
+[interactive]
+	diffFilter = delta --color-only
+
+[merge]
+	conflictstyle = diff3
+	summary = true
+
+[pull]
+	rebase = true
+
+[push]
+	autoSetupRemote = true
+	default = current
+
+[rebase]
+	autostash = true
+	autosquash = true
+
+[rerere]
+	enabled = 1
+
+[url "git@gist.github.com:"]
+	insteadOf = "gst:"
+	pushInsteadOf = "gist:"
+	pushInsteadOf = "git://gist.github.com/"
+
+[url "git@github.com:"]
+	insteadOf = "gh:"
+	pushInsteadOf = "github:"
+	pushInsteadOf = "git://github.com/"
+
+[url "git://gist.github.com/"]
+	insteadOf = "gist:"
+
+[url "git://github.com/"]
+	insteadOf = "github:"
+
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+
+[user]
+	email = praxxis@users.noreply.github.com
+	name = Lindsey
