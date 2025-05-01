@@ -2,8 +2,8 @@
 set -eu
 
 if [ "$(id -u)" -eq 0 ]; then
-    echo 'root, skipping brew' >&2
-    exit 0
+  echo 'root, skipping brew' >&2
+  exit 0
 fi
 
 brew bundle --file=/dev/stdin <<EOF
