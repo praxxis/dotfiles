@@ -30,6 +30,7 @@ set secure
 set number
 " Enable syntax highlighting
 syntax on
+set re=0
 " Tabs and indenting
 set smartindent
 set tabstop=2
@@ -97,7 +98,10 @@ nnoremap <silent><leader>fh
 call plug#begin()
 
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'sheerun/vim-polyglot'
 
 call plug#end()
 
+let g:vim_jsx_pretty_disable_tsx = 1
+let g:dracula_italic = 0
 silent! colorscheme dracula
