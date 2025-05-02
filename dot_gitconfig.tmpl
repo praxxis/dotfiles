@@ -75,6 +75,17 @@
 [merge]
   conflictstyle = diff3
   summary = true
+{{- if lookPath "code" }}
+  tool = vscode
+{{- else }}
+  tool = vimdiff2
+{{- end }}
+
+[mergetool]
+  hideResolved = true
+
+[mergetool "vscode"]
+  cmd = code --wait $MERGED
 
 [pull]
   rebase = true

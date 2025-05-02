@@ -17,8 +17,12 @@ command = "delta"
 pager = "delta"
 exclude = ["dirs", "scripts"]
 [merge]
+{{ if lookPath "code" -}}
 command = "bash"
 args = [
   "-c",
   {{ printf "%q" "cp {{ .Target }} {{ .Target }}.base && code --new-window --wait --merge {{ .Destination }} {{ .Target }} {{ .Target }}.base {{ .Source }}" }},
 ]
+{{- else -}}
+command = "vimdiff"
+{{- end }}
