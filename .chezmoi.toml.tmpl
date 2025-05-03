@@ -2,27 +2,39 @@
 {{- writeToStdout "Homebrew not found, exiting\n" -}}
 {{- exit 1 -}}
 {{- end -}}
+{{- $graphical := (or (lookPath "cursor") (lookPath "code")) }}
+{{- $editor := (or $graphical (lookPath "vim") ) }}
+{{- $work := false }}
 [edit]
-{{ if lookPath "cursor" -}}
-command = "cursor"
-args = ["--wait"]
-{{- else if lookPath "code" -}}
-command = "code"
+{{ if $graphical -}}
+command = "{{ $editor }}"
 args = ["--wait"]
 {{- else -}}
-command = "vim"
+command = "{{ $editor }}"
 {{- end }}
 [diff]
 command = "delta"
 pager = "delta"
 exclude = ["dirs", "scripts"]
 [merge]
-{{ if lookPath "code" -}}
+{{ if $graphical -}}
 command = "bash"
 args = [
   "-c",
-  {{ printf "%q" "cp {{ .Target }} {{ .Target }}.base && code --new-window --wait --merge {{ .Destination }} {{ .Target }} {{ .Target }}.base {{ .Source }}" }},
+  {{- $cmd := printf "cp {{ .Target }} {{ .Target }}.base && %s --new-window --wait --merge {{ .Destination }} {{ .Target }} {{ .Target }}.base {{ .Source }}" $editor -}}
+  {{ printf "%q" $cmd }},
 ]
 {{- else -}}
-command = "vimdiff"
+args = [
+  "-f",
+  "-d",
+  "-c 'wincmd l'",
+  {{ printf "%q" "{{ .Destination }}" }},
+  {{ printf "%q" "{{ .Source }}" }},
+  {{ printf "%q" "{{ .Target }}" }},
+]
 {{- end }}
+[data]
+work = {{ $work }}
+graphical = "{{ $graphical }}"
+editor = "{{ $editor }}"

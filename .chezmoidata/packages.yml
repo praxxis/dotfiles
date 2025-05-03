@@ -11,3 +11,4 @@ packages:
   - atuin
   - zoxide
   - bat
+  - git

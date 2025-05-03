@@ -104,4 +104,5 @@ call plug#end()
 
 let g:vim_jsx_pretty_disable_tsx = 1
 let g:dracula_italic = 0
+let g:dracula_colorterm = 0
 silent! colorscheme dracula
