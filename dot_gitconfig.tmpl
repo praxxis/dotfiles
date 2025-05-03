@@ -121,9 +121,11 @@
 [url "git://github.com/"]
   insteadOf = "github:"
 
-{{- if .work -}}
 [url "ssh://git@github.com/"]
+{{- if .work }}
   insteadOf = https://github.com/
+{{- else }}
+  pushInsteadOf = https://github.com/
 {{- end }}
 
 [user]
