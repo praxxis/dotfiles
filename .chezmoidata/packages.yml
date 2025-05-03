@@ -12,3 +12,4 @@ packages:
   - zoxide
   - bat
   - git
+  - neovim
