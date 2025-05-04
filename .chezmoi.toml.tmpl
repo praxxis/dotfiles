@@ -21,7 +21,7 @@ exclude = ["dirs", "scripts"]
 command = "bash"
 args = [
   "-c",
-  {{- $cmd := printf "cp {{ .Target }} {{ .Target }}.base && %s --new-window --wait --merge {{ .Destination }} {{ .Target }} {{ .Target }}.base {{ .Source }}" $editor -}}
+  {{- $cmd := printf "cp \"{{ .Target }}\" \"{{ .Target }}.base\" && %s --new-window --wait --merge \"{{ .Destination }}\" \"{{ .Target }}\" \"{{ .Target }}.base\" \"{{ .Source }}\"" $editor -}}
   {{ printf "%q" $cmd }},
 ]
 {{- else -}}

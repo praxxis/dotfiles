@@ -1,0 +1,25 @@
+[user]
+name = "Lindsey"
+email = "praxxis@users.noreply.github.com"
+
+[ui]
+default-command = "log"
+
+[revset-aliases]
+'closest_bookmark(to)' = 'heads(::to & bookmarks())'
+'immutable_heads()' = "builtin_immutable_heads() | remote_bookmarks()"
+'recent()' = 'committer_date(after:"3 months ago")'
+
+[aliases]
+tug = ["bookmark", "move", "--from", "closest_bookmark(@-)", "--to", "@-"]
+nb = ["bookmark", "create", "-r @-"] # "new bookmark"
+pull = ["git", "fetch"]
+push = ["git", "push", "--allow-new"]
+sync = ['git', 'fetch', '--all-remotes']
+evolve = ['rebase', '--skip-empty', '-d', 'main']
+
+[git]
+push-new-bookmarks = true
+
+[template-aliases]
+'format_short_change_id(id)' = 'id.shortest()'

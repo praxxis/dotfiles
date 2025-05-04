@@ -19,3 +19,5 @@ set -gx LESS '--quit-if-one-screen --ignore-case --LONG-PROMPT --RAW-CONTROL-CHA
 set -gx HOMEBREW_CASK_OPTS "--appdir=~/Applications --fontdir=/Library/Fonts"
 
 set -gx MANPAGER "sh -c 'col -bx | bat --language man --plain --theme=\"Monokai Extended\"'"
+
+set -gx EDITOR {{ .editor }}

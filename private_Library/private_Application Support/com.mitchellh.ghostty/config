@@ -46,3 +46,4 @@ theme = dracula
 bold-is-bright=true
 font-family=JetBrains Mono
 font-size=14
+font-feature=-calt
