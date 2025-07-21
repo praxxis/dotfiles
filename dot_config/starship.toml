@@ -1,6 +1,7 @@
 # Prompt config
 
 add_newline = false
+command_timeout = 1000
 
 # A minimal left prompt
 format = """$username$hostname$directory$git_branch$git_commit$git_status$git_state $character"""

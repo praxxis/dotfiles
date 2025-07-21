@@ -48,6 +48,8 @@ set showcmd
 " Start scrolling N lines before the horizontal window border
 set scrolloff=3
 
+set mouse=
+
 " Automatic commands
 " Enable file type detection (is default on, but keep group for autocmds)
 filetype plugin indent on
