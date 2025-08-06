@@ -1,7 +1,7 @@
 " Neovim configuration based on existing Vimrc
 
 " Use the OS clipboard by default
-set clipboard=unnamed
+set clipboard=
 
 " Add the g flag to search/replace by default
 set gdefault
