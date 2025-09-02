@@ -4,7 +4,7 @@
 {{- end -}}
 {{- $graphical := (or (lookPath "cursor") (lookPath "code")) }}
 {{- $editor := (or $graphical (lookPath "vim") ) }}
-{{- $work := false }}
+{{- $work := (and (lookPath "sq-bootstrap") true) }}
 [edit]
 {{ if $graphical -}}
 command = "{{ $editor }}"

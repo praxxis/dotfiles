@@ -287,6 +287,11 @@ defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 # Prevent Photos from opening automatically when devices are plugged in
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
+# Personal
+defaults -currentHost write -globalDomain NSStatusItemSpacing -int 6
+defaults -currentHost write -globalDomain NSStatusItemSelectionPadding -int 6
+sed "s/^#auth/auth/" /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
+
 for app in "Activity Monitor" \
 	"Address Book" \
 	"Calendar" \
