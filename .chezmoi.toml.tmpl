@@ -6,7 +6,7 @@
 {{- $editor := (or $graphical (lookPath "vim") ) }}
 {{- $work := false }}
 {{- if (lookPath "sq-bootstrap") -}}
-{{- $work := true }}
+{{- $work = true }}
 {{- end -}}
 [edit]
 {{ if $graphical -}}
