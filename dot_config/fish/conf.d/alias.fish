@@ -4,6 +4,8 @@ alias ack 'rg --colors path:style:bold --colors line:style:bold --smart-case'
 alias fzy 'fzy -l50'
 alias cz 'chezmoi'
 alias vi 'nvim'
+alias dcrun 'docker-compose -f /opt/docker-compose.yml '
+alias dclogs 'docker-compose -f /opt/docker-compose.yml logs -tf --tail="50" '
 
 abbr -a serve 'static-web-server --page-fallback=index.html -d .'
 abbr -a ackjs 'ack -g "*.js" -g "*.ts" -g "*.jsx" -g "*.tsx"'
