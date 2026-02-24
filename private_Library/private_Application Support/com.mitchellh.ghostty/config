@@ -27,3 +27,5 @@ quick-terminal-space-behavior = move
 keybind = global:ctrl+f12=toggle_quick_terminal
 
 keybind = shift+enter=text:\x1b\r
+
+window-new-tab-position=end
