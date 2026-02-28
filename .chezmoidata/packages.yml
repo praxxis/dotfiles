@@ -1,4 +1,6 @@
+# Base packages that need to exist for the command line to work properly
 packages:
+  - chezmoi
   - fish
   - eza
   - git-delta

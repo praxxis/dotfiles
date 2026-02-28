@@ -16,8 +16,8 @@ set -gx FZF_DEFAULT_COMMAND 'fd --type f --hidden --follow --exclude .git'
 set -gx PAGER "less"
 set -gx LESS '--quit-if-one-screen --ignore-case --LONG-PROMPT --RAW-CONTROL-CHARS --tabs=2 --no-init --window=-4'
 
-set -gx HOMEBREW_CASK_OPTS "--appdir=~/Applications --fontdir=/Library/Fonts"
+set -gx HOMEBREW_CASK_OPTS "--fontdir=/Library/Fonts"
 
-set -gx MANPAGER "sh -c 'col -bx | bat --language man --plain --theme=\"Monokai Extended\"'"
+set -gx MANPAGER "sh -c 'col -bx | bat --language man --plain --theme=\"Dracula\"'"
 
 set -gx EDITOR {{ .editor }}
