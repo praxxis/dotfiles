@@ -288,9 +288,16 @@ defaults write com.apple.TextEdit PlainTextEncodingForWrite -int 4
 defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
 # Personal
+# Menu bar padding
 defaults -currentHost write -globalDomain NSStatusItemSpacing -int 6
 defaults -currentHost write -globalDomain NSStatusItemSelectionPadding -int 6
+# sudo with TouchID
 sed "s/^#auth/auth/" /etc/pam.d/sudo_local.template | sudo tee /etc/pam.d/sudo_local
+# Fish shell as default
+echo /opt/homebrew/bin/fish | sudo tee -a /etc/shells
+chsh -s /opt/homebrew/bin/fish
+# Install OSX apps
+# brew bundle install --file=~/.Brewfile_osx
 
 for app in "Activity Monitor" \
 	"Address Book" \
