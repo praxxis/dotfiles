@@ -5,6 +5,7 @@ brew "less"
 brew "mas"
 brew "tealdeer"
 brew "xh"
+brew "mise"
 
 cask "font-0xproto-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
