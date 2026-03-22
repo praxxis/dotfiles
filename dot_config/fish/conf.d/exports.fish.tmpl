@@ -11,10 +11,6 @@ if test -d "$HOME/.local/bin"
   fish_add_path "$HOME/.local/bin"
 end
 
-if test -d "$HOME/bin-private"
-  fish_add_path "$HOME/bin-private"
-end
-
 set -gx FZF_DEFAULT_COMMAND 'fd --type f --hidden --follow --exclude .git'
 
 set -gx PAGER "less"
