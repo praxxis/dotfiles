@@ -33,3 +33,7 @@ style = "compact"
 [daemon]
 enabled = true
 autostart = true
+
+[theme]
+name = "dracula"
+debug = true
