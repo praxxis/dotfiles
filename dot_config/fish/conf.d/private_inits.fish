@@ -9,5 +9,6 @@ if status --is-interactive
   zoxide init fish | source
 
   set --erase ATUIN_NOBIND
-  atuin init fish --disable-up-arrow | source
+  eval "$(atuin hex init fish)"
+  eval "$(atuin init fish --disable-up-arrow)"
 end
