@@ -27,18 +27,33 @@ fi
 GREEN=$(printf '\033[32m')
 YELLOW=$(printf '\033[33m')
 RED=$(printf '\033[31m')
+ORANGE=$(printf '\033[38;2;255;202;128m')
 RESET=$(printf '\033[0m')
 
 git_str=""
 if git rev-parse --git-dir >/dev/null 2>&1; then
 	branch=$(git branch --show-current 2>/dev/null)
-	[ -z "$branch" ] && branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
+	if [ -z "$branch" ]; then
+		hash=$(git rev-parse --short HEAD 2>/dev/null)
+		git_str="${GREEN}(${hash})${RESET}"
+	else
+		git_str="${GREEN}${branch}${RESET}"
+	fi
+
 	staged=$(git diff --cached --numstat 2>/dev/null | wc -l | tr -d ' ')
 	modified=$(git diff --numstat 2>/dev/null | wc -l | tr -d ' ')
+	untracked=$(git ls-files --others --exclude-standard 2>/dev/null | wc -l | tr -d ' ')
+	ahead=$(git rev-list --count "@{u}..HEAD" 2>/dev/null || echo 0)
+	behind=$(git rev-list --count "HEAD..@{u}" 2>/dev/null || echo 0)
 
-	git_str="$branch"
-	[ "$staged" -gt 0 ] && git_str="${git_str} $(printf '%s+%s%s' "$GREEN" "$staged" "$RESET")"
-	[ "$modified" -gt 0 ] && git_str="${git_str} $(printf '%s~%s%s' "$YELLOW" "$modified" "$RESET")"
+	status_str=""
+	[ "$staged" -gt 0 ] && status_str="${status_str}"
+	[ "$modified" -gt 0 ] && status_str="${status_str}"
+	[ "$untracked" -gt 0 ] && status_str="${status_str}"
+	[ "$ahead" -gt 0 ] && status_str="${status_str}⇡${ahead}"
+	[ "$behind" -gt 0 ] && status_str="${status_str}⇣${behind}"
+
+	[ -n "$status_str" ] && git_str="${git_str}${ORANGE}${status_str}${RESET}"
 else
 	git_str="no branch"
 fi
@@ -74,7 +89,7 @@ format_rl() {
 	fi
 	reset_time=$(date -r "$reset_ts" "+%-I:%M%p" 2>/dev/null || date -d "@$reset_ts" "+%-I:%M%p" 2>/dev/null)
 	bar=$(make_bar "$pct")
-	printf "${color}${label} ${bar} ${pct}%% resets ${reset_time}${RESET}"
+	printf "${color}${label} ${bar} ${pct}%%${RESET} resets ${reset_time}"
 }
 
 format_rl_short() {

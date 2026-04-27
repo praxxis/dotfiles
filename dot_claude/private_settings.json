@@ -38,16 +38,34 @@
     "type": "command",
     "command": "bash ~/.claude/statusline-command.sh"
   },
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true,
+    "cloudflare@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "cloudflare": {
+      "source": {
+        "source": "github",
+        "repo": "cloudflare/skills"
+      }
+    }
+  },
   "sandbox": {
     "enabled": true,
     "filesystem": {
-      "allowWrite": ["."],
-      "denyWrite": ["/"],
-      "denyRead": ["~/"],
-      "allowRead": ["."]
+      "allowWrite": [
+        "."
+      ],
+      "denyWrite": [
+        "/"
+      ],
+      "denyRead": [
+        "~/"
+      ],
+      "allowRead": [
+        "."
+      ]
     }
-  },
-  "enabledPlugins": {
-    "typescript-lsp@claude-plugins-official": true
   }
 }

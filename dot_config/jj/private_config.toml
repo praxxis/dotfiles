@@ -18,8 +18,9 @@ push = ["git", "push", "--allow-new"]
 sync = ['git', 'fetch', '--all-remotes']
 evolve = ['rebase', '--skip-empty', '-d', 'main']
 
-[git]
-push-new-bookmarks = true
-
 [template-aliases]
 'format_short_change_id(id)' = 'id.shortest()'
+'format_short_signature(signature)' = 'signature'
+
+[remotes.origin]
+auto-track-bookmarks = "*"
