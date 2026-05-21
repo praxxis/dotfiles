@@ -12,3 +12,12 @@ abbr -a ackjs 'ack -g "*.js" -g "*.ts" -g "*.jsx" -g "*.tsx"'
 abbr cz-pull 'chezmoi git pull -- --autostash --rebase && chezmoi diff'
 abbr cz-commit 'cz git add . && cz git commit -- -m "updates"'
 abbr -a stream --set-cursor 'streamlink --player=/Applications/IINA.app/Contents/MacOS/iina-cli --player-args {playerinput}-stdin https://twitch.tv/% best'
+
+function ytdl-playlist
+    yt-dlp -f "bestvideo+bestaudio/best" \
+        --merge-output-format mp4 \
+        -o "%(playlist_index)s - %(title)s.%(ext)s" \
+        --download-archive archive.txt \
+        --cookies-from-browser firefox \
+        $argv
+end

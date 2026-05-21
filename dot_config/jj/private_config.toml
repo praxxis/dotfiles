@@ -1,3 +1,5 @@
+write-change-id-header = true
+
 [user]
 name = "Lindsey"
 email = "praxxis@users.noreply.github.com"
