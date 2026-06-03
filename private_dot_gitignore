@@ -13,3 +13,7 @@ yarn-error.log
 .rgignore
 .jj
 .cursor
+Procfile.me
+.mcp.json
+
+**/.claude/settings.local.json
