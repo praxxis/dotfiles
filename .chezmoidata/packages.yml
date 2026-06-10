@@ -18,3 +18,6 @@ packages:
   - f2
   - btop
   - fisher
+  - tmux
+  - tmuxpack/tpack/tpack
+
