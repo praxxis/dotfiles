@@ -19,5 +19,5 @@ packages:
   - btop
   - fisher
   - tmux
-  - tmuxpack/tpack/tpack
+#  - tmuxpack/tpack/tpack
 
