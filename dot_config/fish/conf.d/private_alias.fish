@@ -13,6 +13,8 @@ abbr cz-pull 'chezmoi git pull -- --autostash --rebase && chezmoi diff'
 abbr cz-commit 'cz git add . && cz git commit -- -m "updates"'
 abbr -a stream --set-cursor 'streamlink --player=/Applications/IINA.app/Contents/MacOS/iina-cli --player-args {playerinput}-stdin https://twitch.tv/% best'
 
+alias  hrepo 'command herdr --session (basename (git rev-parse --show-toplevel))'
+
 function ytdl-playlist
     yt-dlp -f "bestvideo+bestaudio/best" \
         --merge-output-format mp4 \

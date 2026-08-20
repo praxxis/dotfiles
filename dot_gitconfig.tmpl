@@ -30,10 +30,7 @@
 [delta]
   features = side-by-side theme
   syntax-theme = Dracula
-{{- if lookPath "cursor" }}
-  hyperlinks = true
-  hyperlinks-file-link-format = "cursor://file/{path}:{line}"
-{{- else if lookPath "code" }}
+{{- if lookPath "code" }}
   hyperlinks = true
   hyperlinks-file-link-format = "vscode://file/{path}:{line}"
 {{- end }}

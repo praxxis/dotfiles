@@ -2,7 +2,7 @@
 {{- writeToStdout "Homebrew not found, exiting\n" -}}
 {{- exit 1 -}}
 {{- end -}}
-{{- $graphical := (or (lookPath "cursor") (lookPath "code")) }}
+{{- $graphical := (lookPath "code") }}
 {{- $editor := (or $graphical (lookPath "vim") ) }}
 {{- $work := false }}
 {{- if (lookPath "umt") -}}
