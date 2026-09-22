@@ -10,7 +10,7 @@
   s = status -s
   tags = tag -l
   jj = "!jj git init --colocate"
-  prune-deleted = "!git fetch --prune && git branch -D $(git for-each-ref --format '%(if:equals=gone)%(upstream:track,nobracket)%(then)%(refname:short)%(end)' refs/heads/)"
+  prune-deleted = "!f() { git fetch --prune || return; stack_file=$(git rev-parse --git-path gh-stack) || return; stacked_branches=; if [ -f \"$stack_file\" ]; then command -v jq >/dev/null 2>&1 || { echo \"Cannot protect stacked branches: jq is unavailable\" >&2; return 1; }; stacked_branches=$(jq -r \".stacks[]?.branches[]?.branch\" \"$stack_file\") || { echo \"Cannot protect stacked branches: failed to parse $stack_file\" >&2; return 1; }; fi; for branch in $(git for-each-ref --format=\"%(if:equals=gone)%(upstream:track,nobracket)%(then)%(refname:short)%(end)\" refs/heads/); do if [ -n \"$stacked_branches\" ] && printf \"%s\\n\" \"$stacked_branches\" | grep -Fqx -- \"$branch\"; then echo \"Skipping stacked branch $branch\"; else git branch -D -- \"$branch\" || return; fi; done; }; f"
 
 [apply]
   whitespace = fix
